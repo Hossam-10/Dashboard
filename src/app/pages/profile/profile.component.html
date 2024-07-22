@@ -1,0 +1,126 @@
+<h6 class="title">Profile</h6>
+
+<!--Profile data-->
+<div class="profile-container">
+  <div class="d-flex justify-content-between align-items-center profile-header">
+    <div class="d-flex align-items-center profile-name">
+      <div
+        class="profile-name-abbreviation d-flex justify-content-center align-items-center"
+      >
+        HK
+      </div>
+      <p class="profile-name-full">Hagar Kamash</p>
+    </div>
+    <button
+      class="forget-password-btn d-flex align-items-center"
+      type="button"
+      (click)="setShowForgetPasswordForm(true)"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18 13V19C18 20.105 17.105 21 16 21H5C3.895 21 3 20.105 3 19V8C3 6.895 3.895 6 5 6H9"
+          stroke="#2387BF"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M8 14.9998L11.15 14.6108C11.371 14.5838 11.577 14.4828 11.735 14.3258L19.366 6.69475C20.211 5.84975 20.211 4.47975 19.366 3.63375V3.63375C18.521 2.78875 17.151 2.78875 16.305 3.63375L8.745 11.1938C8.592 11.3468 8.493 11.5448 8.462 11.7598L8 14.9998Z"
+          stroke="#2387BF"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      Change password
+    </button>
+  </div>
+
+  <div class="profile-body d-flex flex-column">
+    <div>
+      <p class="label">ID</p>
+      <p class="value">#123447</p>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <p class="label">Roles</p>
+      <div class="d-flex align-items-center gap-1">
+        <div
+          class="role d-flex align-items-center gap-1"
+          *ngFor="let role of roles"
+          [style.backgroundColor]="role.tagColor"
+        >
+          <div class="role-icon" [style.backgroundColor]="role.iconColor"></div>
+          <p class="mb-0">{{ role.name }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <p class="label">Email</p>
+      <p class="value">Hagarkamash&#64;gmail.com</p>
+    </div>
+  </div>
+</div>
+
+<!--forget password form sidebar-->
+<app-popup-modal
+  *ngIf="showForgetPasswordForm"
+  [popupHeader]="header"
+  [popupContent]="content"
+  [popupFooter]="footer"
+></app-popup-modal>
+
+<ng-template #header>
+  <div
+    class="columns-header w-100 d-flex justify-content-between align-items-center"
+  >
+    <div class="columns-header__title">
+      <p class="mb-0 fw-bold sidebar-title">Change Key</p>
+    </div>
+    <div
+      class="columns-header__close d-flex justify-content-center align-items-center"
+    >
+      <i class="pi pi-times close-btn" (click)="setShowForgetPasswordForm(false)"></i>
+    </div>
+  </div>
+</ng-template>
+<ng-template #content>
+  <div class="d-flex flex-column form-body">
+    <div class="w-100 d-flex flex-column gap-2 password-margin">
+      <label for="password" class="input-label">Old Password*</label>
+      <p-password
+        [placeholder]="'Min. 8 characters'"
+        formControlName="password"
+        [toggleMask]="true"
+      />
+    </div>
+    <div class="w-100 d-flex flex-column gap-2 password-margin">
+      <label for="password" class="input-label">New Password*</label>
+      <p-password
+        [placeholder]="'Min. 8 characters'"
+        formControlName="password"
+        [toggleMask]="true"
+      />
+    </div>
+    <div class="w-100 d-flex flex-column gap-2 password-margin">
+      <label for="password" class="input-label">Confirm Password*</label>
+      <p-password
+        [placeholder]="'Min. 8 characters'"
+        formControlName="password"
+        [toggleMask]="true"
+      />
+    </div>
+  </div>
+</ng-template>
+<ng-template #footer>
+    <button class="w-100 update-btn">Update</button>
+</ng-template>

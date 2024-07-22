@@ -2,6 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TableComponent } from '../../shared/components/table/table.component';
+import { ColumnsComponent } from "./columns/columns.component";
 
 interface IUser {
   id: string;
@@ -26,7 +27,7 @@ interface IUser {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [TableComponent, AsyncPipe],
+  imports: [TableComponent, AsyncPipe, ColumnsComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
