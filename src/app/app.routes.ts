@@ -4,6 +4,7 @@ import { MainLayoutComponent } from './shared/components/main-layout/main-layout
 import { LoginComponent } from './pages/sign-in/login/login.component';
 import { OtpComponent } from './pages/sign-in/otp/otp.component';
 import { ColumnsComponent } from './pages/dashboard/columns/columns.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
   {
@@ -42,6 +43,10 @@ export const routes: Routes = [
       {
         path: 'columns',
         component: ColumnsComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
       },
     ],
   },
